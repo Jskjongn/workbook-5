@@ -17,12 +17,8 @@ public class SuperHero extends SuperPerson {
     }
 
     @Override
+    // allows superhero to fight an opponent
     public void fight(SuperPerson opponent) {
-
-        // make hero do random amount of damage to the opponent
-        // the damage should be a random number plus the experiencePoints
-        // if the base damage (without xp) was 0, don't do any damage and say you missed
-        // otherwise deal the damage and say something about you connecting a hit
 
         // base damage is 10 plus number of experience points
         int damageAmount = new Random().nextInt(11);

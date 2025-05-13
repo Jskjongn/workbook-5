@@ -54,18 +54,19 @@ public class SuperApp {
         }
 
         // displays end message
+        System.out.println("------------------------------------------------");
         System.out.println("\nThe ultimate battle of good VS evil has concluded!\n");
 
         // displays on who is alive after fight and who the winner is along with battle log
         if (superJack.isAlive()) {
-            System.out.println("Our righteous hero, " + superJack.name + ", is the winner!\n");
+            System.out.println("Our righteous " + superJack.getType() + ", " + superJack.name + ", is the winner!\n");
             System.out.println("------------------------------------------------");
 
             //displays battle log with number of hits
             superJack.printBattleLog();
             villainBob.printBattleLog();
         } else {
-            System.out.println("The dastardly villain, " + villainBob.name + ", is the winner!\n");
+            System.out.println("The dastardly " + villainBob.getType() + ", " + villainBob.name + ", is the winner!\n");
             System.out.println("------------------------------------------------");
 
             //displays battle log with number of hits

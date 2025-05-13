@@ -4,7 +4,8 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Random;
 
-public class SuperPerson {
+// abstract so a super person cannot be created, is only a blueprint for subclasses
+public abstract class SuperPerson {
 
     // protected properties so they can be accessed by children, stays in the family
     protected String name;
@@ -31,18 +32,16 @@ public class SuperPerson {
         return this.health > 0;
     }
 
-    // method that allows us to fight another SuperPerson
-    public void fight(SuperPerson opponent) {
+    // abstract method for subclasses that allows us to fight another SuperPerson
+    public abstract void fight(SuperPerson opponent);
 
-        // generate random amount of damage
-        // returns a number between 0 and 20
-        int damageAmount = new Random().nextInt(21);
+    // method for getting what a super person is
+    public String getType() {
 
-        // displays the opponent we are fighting against
-        System.out.println(this.name + " is fighting " + opponent.name + "!");
-        opponent.takeDamage(damageAmount + this.experiencePoints);
+        return this.getClass().getSimpleName();
     }
 
+    // method for taking off health by how much damage was done
     public void takeDamage(int damageAmount) {
 
         // subtract damage amount from health but don't want to set health below 0
