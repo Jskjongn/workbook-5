@@ -15,11 +15,11 @@ public class SuperVillain extends SuperPerson{
     @Override
     public void fight(SuperPerson opponent) {
 
-        logHit(opponent);
-
         int damageAmount = new Random().nextInt(16);
 
-        int totalDamage = damageAmount + experiencePoints;
+        int bonus = getRandomPowerUp();
+
+        int totalDamage = damageAmount + experiencePoints + bonus;
 
         if (damageAmount == 0) {
             System.out.println("You won't be so lucky next time, " + opponent.name + "!");
@@ -27,6 +27,9 @@ public class SuperVillain extends SuperPerson{
             System.out.println("You are no match for my evil! " +
                     opponent.name + " was hit for " + totalDamage);
             opponent.takeDamage(totalDamage);
+
+            // adds each hit to the log
+            logHit(opponent);
         }
     }
 }

@@ -1,5 +1,6 @@
 package com.pluralsight;
 
+import java.util.ArrayList;
 import java.util.Random;
 
 // children class extends the SuperPerson class which copies all functionality from parent class
@@ -18,8 +19,6 @@ public class SuperHero extends SuperPerson {
     @Override
     public void fight(SuperPerson opponent) {
 
-        logHit(opponent);
-
         // make hero do random amount of damage to the opponent
         // the damage should be a random number plus the experiencePoints
         // if the base damage (without xp) was 0, don't do any damage and say you missed
@@ -28,7 +27,11 @@ public class SuperHero extends SuperPerson {
         // base damage is 10 plus number of experience points
         int damageAmount = new Random().nextInt(11);
 
-        int totalDamage = damageAmount + experiencePoints;
+        // calls random item method to get bonus damage
+        int bonus = getRandomPowerUp();
+
+        // adds the random damage amount plus the experience points set when creating a hero plus the bonus from a random item
+        int totalDamage = damageAmount + experiencePoints + bonus;
 
         // if damage done is 0 then doesn't do damage
         if (damageAmount == 0) {
@@ -38,6 +41,9 @@ public class SuperHero extends SuperPerson {
                     opponent.name + " was hit for " + totalDamage);
             // if damage is greater than 0 then does damage plus the xp
             opponent.takeDamage(totalDamage);
+
+            // adds each hit to the log
+            logHit(opponent);
         }
     }
 }
