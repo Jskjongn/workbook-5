@@ -3,9 +3,9 @@ package com.pluralsight;
 public abstract class Asset {
 
     // properties of an asset
-    String description;
-    String dateAcquired;
-    double originalCost;
+    private String description;
+    private String dateAcquired;
+    private double originalCost;
 
     public Asset(String description, String dateAcquired, double originalCost) {
         this.description = description;

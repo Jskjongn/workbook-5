@@ -22,7 +22,7 @@ public class House extends Asset {
     // gets the value of the house depending on condition and square feet
     public double getValue() {
 
-        double squareFootPrice = switch (condition) {
+        double squareFootPrice = switch (this.condition) {
             case 1 ->
                 // excellent
                     180.00;
@@ -42,7 +42,7 @@ public class House extends Asset {
 
         // multiples the cost of square foot times how many square feet
         // then adds 25 cents per square foot of lot size
-        return (squareFoot * squareFootPrice) + (lotSize * 0.25);
+        return (this.squareFoot * squareFootPrice) + (this.lotSize * 0.25);
     }
 
     public String getAddress() {

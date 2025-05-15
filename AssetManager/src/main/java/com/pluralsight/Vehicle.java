@@ -25,7 +25,7 @@ public class Vehicle extends Asset {
         // gets the age of the vehicle by subtracting current year by year of the vehicle
         int vehicleAge = LocalDate.now().getYear() - this.year;
 
-        double depreciationCost = this.originalCost;
+        double depreciationCost = getOriginalCost();
 
         // if vehicle is 0-3 years old, it's depreciated by 3%
         if (vehicleAge >= 0 && vehicleAge <= 3) {
